@@ -1,7 +1,6 @@
 package com.example.todo_api.todo;
 
 import com.example.todo_api.member.Member;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -46,6 +45,10 @@ public class TodoRepository {
     // 삭제
     public void deleteById(Long todoId) {
         Todo todo = findById(todoId);
+        em.remove(todo);
+    }
+
+    public void delete(Todo todo) {
         em.remove(todo);
     }
 

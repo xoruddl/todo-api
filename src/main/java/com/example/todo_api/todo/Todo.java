@@ -20,15 +20,14 @@ public class Todo {
     private String content;
 
     @Column(name = "todo_is_checked", columnDefinition = "tinyint(1)")
-    private boolean isChecked;
+    private boolean isChecked = false;
 
     @JoinColumn(name = "member_id") // 외래키임
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
-    public Todo(String content, boolean isChecked, Member member) {
+    public Todo(String content, Member member) {
         this.content = content;
-        this.isChecked = isChecked;
         this.member = member;
     }
 
