@@ -25,7 +25,7 @@ public class TodoService {
         Member member = memberRepository.findById(memberId);
 
         if (member == null) {
-            throw new BadRequestException("존재하지 않는 멤버입니다.");
+            throw new BadRequestException(ErrorMessage.MEMBER_NOT_EXIST);
         }
 
 //        List<Todo> todoList = todoRepository.findAllByMember(member);
